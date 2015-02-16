@@ -124,12 +124,12 @@ public:
       return !!mSize;
    }
 
-   constexpr const charT& operator[](size_type pos) const
+   constexpr const_reference operator[](size_type pos) const
    {
       return mData[pos];
    }
 
-   constexpr const charT& at(size_type pos) const
+   constexpr const_reference at(size_type pos) const
    {
       if (pos >= size()) {
          throw std::out_of_range();
@@ -138,17 +138,17 @@ public:
       return mData[pos];
    }
 
-   constexpr const charT& front() const
+   constexpr const_reference front() const
    {
       return mData[0];
    }
 
-   constexpr const charT& back() const
+   constexpr const_reference back() const
    {
       return mData[size() - 1];
    }
 
-   constexpr const charT* data() const noexcept
+   constexpr const_pointer data() const noexcept
    {
       return mData;
    }
