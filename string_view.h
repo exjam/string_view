@@ -294,8 +294,12 @@ template<> struct hash<string_view>
 {
    size_t operator()(string_view str)
    {
+#ifdef _HASH_SEQ_DEFINED
+      return std::_Hash_seq(reinterpret_cast<const unsigned char*>(str.data()), str.size());
+#else
       hash<string> h;
       return h(str.to_string());
+#endif
    }
 };
 
