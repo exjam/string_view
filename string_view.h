@@ -101,7 +101,7 @@ public:
 
    const_reverse_iterator crend() const noexcept
    {
-      return const_reverse_iterator(end());
+      return const_reverse_iterator(begin());
    }
 
    constexpr size_type size() const noexcept
