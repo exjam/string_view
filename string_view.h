@@ -300,3 +300,6 @@ template<> struct hash<string_view>
 };
 
 }
+
+#undef constexpr
+#undef noexcept
