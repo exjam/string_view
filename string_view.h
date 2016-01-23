@@ -2,9 +2,14 @@
 #include <string>
 
 #if defined(_MSC_VER) && (_MSC_VER <= 1800)
+#if !defined(constexpr)
 #define STRING_VIEW_CONSTEXPR_DEFINED
 #define constexpr
+#endif
+#if !defined(noexcept)
+#define STRING_VIEW_NOEXCEPT_DEFINED
 #define noexcept
+#endif
 #endif
 
 namespace std
@@ -310,5 +315,7 @@ template<> struct hash < string_view >
 
 #if defined(STRING_VIEW_CONSTEXPR_DEFINED)
 #undef constexpr
+#endif
+#if defined(STRING_VIEW_NOEXCEPT_DEFINED)
 #undef noexcept
 #endif
